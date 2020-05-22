@@ -15,7 +15,7 @@ function App() {
       <BrowserRouter>
         <AppNav />
         <Switch>
-          <Route exac path="/" component={MainContainer} />
+          <Route exac path="/:id" component={MainContainer} />
           <Route exac path="/patient" component={Patient} />
           <Route exac path="/contact" component={Contact} />
           <Route exac path="/about-us" component={AboutUs} />
