@@ -1,13 +1,17 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import AppNav from "./components/AppNav/AppNav";
 import Footer from "./components/Footer/Footer";
 import MainContainer from "./containers/MainContainer/MainContainer";
-import Patient from "./containers/Patient/Patient";
+import PatientLogIn from "./containers/PatientLogIn/PatientLogIn";
 import AboutUs from "./containers/AboutUs/AboutUs";
 import Contact from "./containers/Contact/Contact";
-import Doctor from "./containers/Doctor/Doctor";
+import DoctorConsult from "./containers/DoctorConsult/DoctorConsult";
+import PatientCard from "./containers/Patient/Patient"
+import SearchPatient from "./containers/SearchPatient/SearchPatient"
+import AppNav from "./components/AppNav/AppNav";
+import DoctorLogIn from "./containers/DoctorLogIn/DoctorLogIn";
 import "./App.css";
+
 
 function App() {
   return (
@@ -15,11 +19,14 @@ function App() {
       <BrowserRouter>
         <AppNav />
         <Switch>
-          <Route exac path="/" component={MainContainer} />
-          <Route exac path="/patient" component={Patient} />
-          <Route exac path="/contact" component={Contact} />
-          <Route exac path="/about-us" component={AboutUs} />
-          <Route exac path="/doctor" component={Doctor} />
+          <Route exact path="/" component={MainContainer} />
+          <Route exact path="/patient" component={PatientLogIn} />
+          <Route exact path="/patient-card" component={PatientCard} />
+          <Route exact path="/contact" component={Contact} />
+          <Route exact path="/about-us" component={AboutUs} />
+          <Route exact path="/doctor" component={DoctorLogIn} />
+          <Route exact path="/doctor-consult" component={DoctorConsult} />
+          <Route exact path="/search-patient" component={SearchPatient} />
         </Switch>
         <Footer />
       </BrowserRouter>
