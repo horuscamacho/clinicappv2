@@ -1,14 +1,22 @@
-import React from "react";
-import { link, Link } from "react-router-dom";
+import React, { useState } from "react";
+import {  NavLink } from "react-router-dom";
 
 const AppNav = () => {
-  return (
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">
+  
+
+    const [collapse, setCollapse] = useState(true);
+    const handleToggle = () => {
+      setCollapse(!collapse);
+    }
+    
+    return (
+    <nav className="navbar navbar-expand-lg navbar-light bg-light mb-4">
+      <a className="navbar-brand" href="#">
         ClinicApp
       </a>
       <button
-        class="navbar-toggler"
+      onClick={handleToggle}
+      className="navbar-toggler"
         type="button"
         data-toggle="collapse"
         data-target="#navbarNav"
@@ -16,34 +24,34 @@ const AppNav = () => {
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
-        <span class="navbar-toggler-icon"></span>
+        <span className="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item active">
-            <Link className="nav-link" to="/" >
-              Inicio <span class="sr-only">(current)</span>
-            </Link>
+      <div className={`${collapse && "collapse"} navbar-collapse`} id="navbarNav">
+        <ul className="navbar-nav">
+          <li className="nav-item active">
+            <NavLink className="nav-link" to="/" >
+              Inicio <span className="sr-only">(current)</span>
+            </NavLink>
           </li>
-          <li class="nav-item">
-          <Link className="nav-link" to="/about-us" >
+          <li className="nav-item">
+          <NavLink className="nav-link" to="/about-us" >
               Nosotros 
-            </Link>
+            </NavLink>
           </li>
-          <li class="nav-item">
-          <Link className="nav-link" to="/patient" >
+          <li className="nav-item">
+          <NavLink className="nav-link" to="/patient" >
               Paciente 
-            </Link>
+            </NavLink>
           </li>
-          <li class="nav-item">
-          <Link className="nav-link" to="/doctor" >
+          <li className="nav-item">
+          <NavLink className="nav-link" to="/doctor" >
               Médicos 
-            </Link>
+            </NavLink>
           </li>
-          <li class="nav-item">
-          <Link className="nav-link" to="/contact" >
+          <li className="nav-item">
+          <NavLink className="nav-link" to="/contact" >
               Contacto 
-            </Link>
+            </NavLink>
           </li>
         </ul>
       </div>
